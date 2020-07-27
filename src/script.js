@@ -3,8 +3,6 @@ const generateBtn = document.querySelector('.generate-btn');
 const displayPin = document.getElementById('pin-display');
 const btnNumber = document.querySelectorAll('.button');
 const calcDisplay = document.querySelector('#calc-display');
-const matched = document.querySelector('.match');
-const notMatched = document.querySelector('.not-match');
 const submitBtn = document.querySelector('.submit-btn');
 const countTry = document.querySelector('#try-count');
 const inputField = document.querySelectorAll('.form-control');
@@ -95,8 +93,8 @@ function removeSignal() {
 
 /* notify function */
 function display(firstDisplay, secondDisplay) {
-	notMatched.style.display = firstDisplay;
-	matched.style.display = secondDisplay;
+	document.querySelector('.not-match').style.display = firstDisplay;
+	document.querySelector('.match').style.display = secondDisplay;
 }
 
 function clearInfo() {
