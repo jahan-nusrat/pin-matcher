@@ -144,19 +144,17 @@ input[type='text']:focus {
 }
 
 .correct ion-icon {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 1.2rem;
     background-color: rgb(2, 160, 2);
-    border-radius: 50%;
-    margin-top: -2px;
 }
 
 .not-match ion-icon {
+    background-color: rgb(255, 0, 0);
+}
+
+.notify ion-icon {
     display: inline-block;
     vertical-align: middle;
     font-size: 1.2rem;
-    background-color: rgb(255, 0, 0);
     border-radius: 50%;
     margin-top: -2px;
 }
