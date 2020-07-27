@@ -127,7 +127,7 @@ input[type='text']:focus {
     margin-top: 10px;
 }
 
-.correct {
+.match {
     display: none;
 }
 
@@ -143,7 +143,7 @@ input[type='text']:focus {
     border: 2px solid rgb(252, 0, 0) !important;
 }
 
-.correct ion-icon {
+.match ion-icon {
     background-color: rgb(2, 160, 2);
 }
 
