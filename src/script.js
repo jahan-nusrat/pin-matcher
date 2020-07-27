@@ -23,7 +23,7 @@ generateBtn.addEventListener('click', function () {
 btnNumber.forEach((button) => {
 	button.addEventListener('click', function (event) {
 		if (!event.target.classList.contains('delete', 'clear')) {
-			//check if target is not clear and backspace button
+			//if target is not Backspace and Clear button
 			calcDisplay.value += parseInt(button.innerHTML);
 			countTry.innerHTML = ` ${count} try left`;
 			removeSignal();
@@ -38,16 +38,14 @@ submitBtn.addEventListener('click', function () {
 		//check if pin input value is empty!
 		alert('Please Generate a PIN Number!!');
 		countTry.innerText = countTry.innerText;
-	}
-	else if (calcDisplay.value === displayPin.value) {
+	} else if (calcDisplay.value === displayPin.value) {
 		//check if pin value and calculator input value is equal
 		display('none', 'block');
 		inputField.forEach((signal) => {
 			signal.classList.add('green-signal');
 		});
 		countTry.innerHTML = '<b>SUCCESS</b>';
-	}
-	else {
+	} else {
 		//if pin value and calc value is not equal
 		display('block', 'none');
 		inputField.forEach((signal) => {
@@ -60,14 +58,6 @@ submitBtn.addEventListener('click', function () {
 			submitBtn.style.display = 'none';
 		}
 	}
-});
-
-/* Disabling the input focus written */
-inputField.forEach((input) => {
-	input.addEventListener('input', function () {
-		input.value = '';
-		alert('You are not allowed to give input manually');
-	});
 });
 
 /* Backspace button */
@@ -84,16 +74,24 @@ document.querySelector('.clear').addEventListener('click', function () {
 	display('none', 'none');
 });
 
+/* Disabling the input focus written */
+inputField.forEach((input) => {
+	input.addEventListener('input', function () {
+		input.value = '';
+		alert('You are not allowed to give input manually');
+	});
+});
+
 //FUNCTIONS
 /* input field red green signal functionality */
-function removeSignal () {
+function removeSignal() {
 	inputField.forEach((signal) => {
 		signal.classList.remove('green-signal', 'red-signal');
 	});
 }
 
 /* match,not-match function */
-function display (firstDisplay, secondDisplay) {
+function display(firstDisplay, secondDisplay) {
 	notMatched.style.display = firstDisplay;
 	matched.style.display = secondDisplay;
 }
