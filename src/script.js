@@ -22,8 +22,7 @@ generateBtn.addEventListener('click', function () {
 /* USER INPUT AND SHOW IN CALC SCREEN */
 btnNumber.forEach((button) => {
 	button.addEventListener('click', function (event) {
-		if (!event.target.classList.contains('delete', 'clear')) {
-			//if target is not Backspace and Clear button
+		if (!event.target.classList.contains('delete', 'clear')) { //if target is not Backspace and Clear button
 			calcDisplay.value += parseInt(button.innerHTML);
 			countTry.innerHTML = ` ${count} try left`;
 			removeSignal();
@@ -35,27 +34,24 @@ btnNumber.forEach((button) => {
 /* SUBMIT BUTTON AND VALIDATION */
 let count = 3;
 submitBtn.addEventListener('click', function () {
-	if (displayPin.value === '') {
-		//check if pin input value is empty!
+	if (displayPin.value === '') {				//check if pin input value is empty!
 		alert('Please Generate a PIN Number!!');
 		countTry.innerText = countTry.innerText;
-	} else if (calcDisplay.value === displayPin.value) {
-		//check if pin value and calculator input value is equal
+	} 
+	else if (calcDisplay.value === displayPin.value) {	//check if pin value and calculator input value is equal
 		display('none', 'block'); //notify matched message
 		inputField.forEach((signal) => {
 			signal.classList.add('green-signal');
 		});
 		countTry.innerHTML = '<b>SUCCESS</b>';
-	} else {
-		//if pin value and calc value is not equal
+	} else {						//if pin value and calc value is not equal
 		display('block', 'none'); //notify not matched message
 		inputField.forEach((signal) => {
 			signal.classList.add('red-signal');
 		});
 		count -= 1;
 		countTry.innerHTML = `${count} try left`;
-		if (count === 0) {
-			//disable submit button after 3 try
+		if (count === 0) {	//disable submit button after 3 try
 			submitBtn.setAttribute('disabled', true);
 		}
 	}
