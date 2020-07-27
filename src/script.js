@@ -15,8 +15,11 @@ generateBtn.addEventListener('click', function () {
 	let max = 9999;
 	displayPin.value = Math.floor(Math.random() * (max - min + 1)) + min; //random number generate
 	removeSignal();
-	countTry.innerHTML = ` ${count} try left`;
 	display('none', 'none');
+	submitBtn.removeAttribute('disabled')
+	count = 3;
+	countTry.innerHTML = ` ${count} try left`;
+	calcDisplay.value = ''
 });
 
 /* Show the button number to calculator screen */
@@ -51,11 +54,11 @@ submitBtn.addEventListener('click', function () {
 		inputField.forEach((signal) => {
 			signal.classList.add('red-signal');
 		});
-		count--;
+		count -= 1;
 		countTry.innerHTML = `${count} try left`;
 		if (count === 0) {
 			//disable submit button after 3 try
-			submitBtn.style.display = 'none';
+			submitBtn.setAttribute('disabled', true)
 		}
 	}
 });
