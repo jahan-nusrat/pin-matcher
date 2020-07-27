@@ -18,7 +18,7 @@ generateBtn.addEventListener('click', function () {
 	let max = 9999;
 	displayPin.value = Math.floor(Math.random() * (max - min + 1)) + min; //random number generate
 	submitBtn.removeAttribute('disabled');
-	renderInfo();
+	clearInfo();
 });
 
 /* USER INPUT AND SHOW IN CALC SCREEN */
@@ -41,16 +41,14 @@ submitBtn.addEventListener('click', function () {
 		//check if pin input value is empty!
 		alert('Please Generate a PIN Number!!');
 		countTry.innerText = countTry.innerText;
-	}
-	else if (calcDisplay.value === displayPin.value) {
+	} else if (calcDisplay.value === displayPin.value) {
 		//check if pin value and calculator input value is equal
 		display('none', 'block'); //notify matched message
 		inputField.forEach((signal) => {
 			signal.classList.add('green-signal');
 		});
 		countTry.innerHTML = '<b>SUCCESS</b>';
-	}
-	else {
+	} else {
 		//if pin value and calc value is not equal
 		display('block', 'none'); //notify not matched message
 		inputField.forEach((signal) => {
@@ -83,25 +81,25 @@ document.querySelector('.clear').addEventListener('click', function () {
 document.querySelector('.form-control').addEventListener('input', function () {
 	displayPin.value = '';
 	alert('You are not allowed to give input manually');
-	renderInfo();
+	clearInfo();
 });
 
 /* ----------FUNCTIONS------------ */
 
 /* input field red green signal function */
-function removeSignal () {
+function removeSignal() {
 	inputField.forEach((signal) => {
 		signal.classList.remove('green-signal', 'red-signal');
 	});
 }
 
 /* notify function */
-function display (firstDisplay, secondDisplay) {
+function display(firstDisplay, secondDisplay) {
 	notMatched.style.display = firstDisplay;
 	matched.style.display = secondDisplay;
 }
 
-function renderInfo () {
+function clearInfo() {
 	display('none', 'none');
 	calcDisplay.value = '';
 	removeSignal();
